@@ -12,14 +12,14 @@ const grSymbol = '~`!@#$%^&*()_-+={[}]|\:;"/><,.?/'
 let totalCharacter_Temp = grNumber+grLowerCase+grUpperCase+grSymbol
 let totalCharacter_Final = '';
 const grExclude = '012?><';
-console.log(totalCharacter_Temp)
+// console.log(totalCharacter_Temp)
        
 for (i = 0; i < grExclude.length; i++) {
   totalCharacter_Temp = totalCharacter_Temp.replaceAll(`${grExclude[i]}`,'')
   totalCharacter_Temp = totalCharacter_Temp.replaceAll(grLowerCase,'')
 };
 totalCharacter_Final = totalCharacter_Temp
-console.log(totalCharacter_Final)
+// console.log(totalCharacter_Final)
 let numTotalCharacter = totalCharacter_Final.length      
 
    
@@ -37,6 +37,11 @@ app.use(express.static('public'))
 app.get('/',(req,res) => {
   res.render('index')
 });
+
+app.get('/onClickPasswordLength',(req,res) => {
+  let getPasswordLength = req.query.clickPasswordLength
+  console.log(getPasswordLength)
+})
 
 app.listen(port,() => {
   console.log(`It is running on server http://localhost:${port}`)
