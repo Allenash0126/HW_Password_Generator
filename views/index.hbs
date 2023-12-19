@@ -1,23 +1,22 @@
 <div id="condition">
 
-<form action="/onClickPasswordLength">
-  <div id="condition_0" class="d-flex">
-    <div id="item_0" class="col-2">
-      <p> Password Length </p>
+  <form action="/onClickCondition" method="post">
+    <div id="condition_0" class="d-flex">
+      <div id="item_0" class="col-2">
+        <p> Password Length </p>
+      </div>
+      <div>
+        <input type="text" name="passwordLength" class="form-control" id="password-length" placeholder="input here"/>
+        <p class="text-secondary"> Length is available between 4~15 </p>
+      </div>
     </div>
-    <div>
-      <input type="text" name="clickPasswordLength" class="form-control" id="password-length" placeholder="input here"/>
-      <p class="text-secondary"> Length is available between 4~15 </p>
-    </div>
-  </div>
-</form>
 
   <div id="condition_1" class="d-flex">
     <div id="item_1" class="col-2">
       <p> Include Lowercase Characters </p>
     </div>
     <div id="switch_1" class="col-3 form-check form-switch">
-      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked>
+      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" name="grLowercase">
       <label class="form-check-label" for="flexSwitchCheckDefault">(e.g.abcdefg)</label>
     </div>
   </div>
@@ -27,7 +26,7 @@
         <p> Include Uppercase Characters </p>
       </div>
       <div id="switch_2" class="col-3 form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked>
+        <input class="form-check-input" name="grUppercase" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked>
         <label class="form-check-label" for="flexSwitchCheckDefault">(e.g.ABCDEFG)</label>
       </div>
   </div>
@@ -37,7 +36,7 @@
         <p> Include Numbers </p>
       </div>
       <div id="switch_3" class="col-3 form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked>
+        <input class="form-check-input" name="numbers" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked>
         <label class="form-check-label" for="flexSwitchCheckDefault">(e.g.123456)</label>
       </div>
     </div>
@@ -47,7 +46,7 @@
         <p> Include Symbols </p>
       </div>
       <div id="switch_4" class="col-3 form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked>
+        <input class="form-check-input" name="symbols" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked>
         <label class="form-check-label" for="flexSwitchCheckDefault">(e.g.@#$%)</label>
       </div>
     </div>
@@ -57,16 +56,14 @@
           <p> Exclude Characters </p>
         </div>
         <div>
-          <input type="text" name="url" class="form-control" id="url-input" placeholder="input here" />
+          <input type="text" name="grExclude" class="form-control" id="url-input" placeholder="input here" />
           <p class="text-secondary"> These characters will not appear in the password </p>
         </div>
       </div>
+      <button type="submit" class="btn btn-primary">Generate Password</button>
+  </form>
 </div>
-<div>
-  <button type="submit" class="btn btn-primary" id="password-generate-button">
-        Generate Password
-  </button>
-</div>
+
 <div id="results">
   <h3>Your password is : {{passwordResult}}</h3> 
 </div>
