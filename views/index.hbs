@@ -6,7 +6,7 @@
         <p> Password Length </p>
       </div>
       <div>
-        <input type="text" name="onClickPasswordLength" class="form-control" id="password-length" placeholder="input here"/>
+        <input type="text" name="onClickPasswordLength" class="form-control" id="password-length" placeholder="input here" value="{{passwordLength}}">
         <p class="text-secondary"> Length is available between 4~15 </p>
       </div>
     </div>
@@ -16,7 +16,7 @@
       <p> Include Lowercase Characters </p>
     </div>
     <div id="switch_1" class="col-3 form-check form-switch">
-      <input class="form-check-input" type="checkbox" role="switch" id="checkbox_1" name="onClickLowercase">
+      <input class="form-check-input" type="checkbox" role="switch" id="checkbox_1" name="onClickLowercase" {{#if options.onClickLowercase}} checked {{/if}} >
       <label class="form-check-label" for="checkbox_1">(e.g.abcdefg)</label>
     </div>
   </div>
@@ -26,7 +26,7 @@
         <p> Include Uppercase Characters </p>
       </div>
       <div id="switch_2" class="col-3 form-check form-switch">
-        <input class="form-check-input" name="onClickUppercase" type="checkbox" role="switch" id="checkbox_2" checked>
+        <input class="form-check-input" name="onClickUppercase" type="checkbox" role="switch" id="checkbox_2" {{#if options.onClickUppercase}} checked {{/if}}>
         <label class="form-check-label" for="checkbox_2">(e.g.ABCDEFG)</label>
       </div>
   </div>
@@ -36,7 +36,7 @@
         <p> Include Numbers </p>
       </div>
       <div id="switch_3" class="col-3 form-check form-switch">
-        <input class="form-check-input" name="onClickNumbers" type="checkbox" role="switch" id="checkbox_3" checked>
+        <input class="form-check-input" name="onClickNumbers" type="checkbox" role="switch" id="checkbox_3" {{#if options.onClickNumbers}} checked {{/if}} >
         <label class="form-check-label" for="checkbox_3">(e.g.123456)</label>
       </div>
     </div>
@@ -46,7 +46,7 @@
         <p> Include Symbols </p>
       </div>
       <div id="switch_4" class="col-3 form-check form-switch">
-        <input class="form-check-input" name="onClickSymbols" type="checkbox" role="switch" id="checkbox_4" checked>
+        <input class="form-check-input" name="onClickSymbols" type="checkbox" role="switch" id="checkbox_4" {{#if options.onClickSymbols}} checked  {{/if}}>
         <label class="form-check-label" for="checkbox_4">(e.g.@#$%)</label>
       </div>
     </div>
@@ -56,7 +56,7 @@
           <p> Exclude Characters </p>
         </div>
         <div>
-          <input type="text" name="onClickExclude" class="form-control" id="url-input" placeholder="input here" />
+          <input type="text" name="onClickExclude" class="form-control" id="url-input" placeholder="input here" value="{{grExclude}}">
           <p class="text-secondary"> These characters will not appear in the password </p>
         </div>
       </div>

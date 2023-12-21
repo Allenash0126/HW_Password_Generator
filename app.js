@@ -44,17 +44,18 @@ app.get('/',(req,res) => {
 app.post('/onClickCondition',(req,res) => {
   passwordLength = req.body.onClickPasswordLength;
   grExclude = req.body.onClickExclude;
-
-  if (req.body.onClickLowercase) {
+  
+  let options = req.body
+  if (options.onClickLowercase) {
     totalCharacter_Temp += grLowerCase
   }
-  if (req.body.onClickUppercase) {
+  if (options.onClickUppercase) {
     totalCharacter_Temp += grUpperCase
   }
-  if (req.body.onClickNumbers) {
+  if (options.onClickNumbers) {
     totalCharacter_Temp += grNumber
   }
-  if (req.body.onClickSymbols) {
+  if (options.onClickSymbols) {
     totalCharacter_Temp += grSymbol
   }
   
@@ -63,7 +64,7 @@ app.post('/onClickCondition',(req,res) => {
   // 清空（totalCharacter_Temp）暫存檔
   totalCharacter_Temp = ''
 
-  res.render('index',{passwordResult})
+  res.render('index',{passwordResult,passwordLength,grExclude,options})
 })
 
 app.get('/copyButton',(req,res) => {
