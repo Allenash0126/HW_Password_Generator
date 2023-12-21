@@ -4,6 +4,8 @@ const { engine } = require('express-handlebars');
 const copyPaste = require("copy-paste"); 
 const app = express();
 const port = 3000;
+
+// 在按下Button之後，才驗證輸入是否符合規格
 const wasValidated = 'was-validated'
 
 app.engine('.hbs', engine({extname: '.hbs'}))
@@ -46,6 +48,7 @@ app.post('/onClickCondition',(req,res) => {
   passwordLength = req.body.onClickPasswordLength;
   grExclude = req.body.onClickExclude;
 
+  // 確認完user是否勾選該元素，若有 就把該元素加入
   let options = req.body
   if (options.onClickLowercase) {
     totalCharacter_Temp += grLowerCase
@@ -76,6 +79,7 @@ app.post('/onClickCondition',(req,res) => {
   res.render('index',{passwordResult,passwordLength,grExclude,options,wasValidated})
 })
 
+// 複製鍵
 app.get('/copyButton',(req,res) => {
   copyPaste.copy(passwordResult)
 }) 
