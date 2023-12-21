@@ -1,11 +1,10 @@
-<div id="container">
-
+<div id="container" style="margin-left: 5%; margin-right: 5%; margin-top:2%">
   <h5 class="mb-3">Random Passwords Generator</h5>
   <hr/>
 
   <form action="/onClickCondition" method="post" class=" {{wasValidated}} " novalidate>
-    <div id="condition_0" class="d-flex mb-3">
-      <div id="item_0" class="col-2">
+    <div id="condition_0" class="d-flex mb-3 align-items-center">
+      <div id="item_0" class="col-3">
         <p> Password Length </p>
       </div>
       <div>
@@ -17,7 +16,7 @@
     </div>
 
   <div id="condition_1" class="d-flex mb-3">
-    <div id="item_1" class="col-2">
+    <div id="item_1" class="col-3 align-items-center">
       <p> Include Lowercase Characters </p>
     </div>
     <div id="switch_1" class="col-3 form-check form-switch">
@@ -27,7 +26,7 @@
   </div>
 
   <div id="condition_2" class="d-flex mb-3">
-      <div id="item_2" class="col-2">
+      <div id="item_2" class="col-3">
         <p> Include Uppercase Characters </p>
       </div>
       <div id="switch_2" class="col-3 form-check form-switch">
@@ -37,7 +36,7 @@
   </div>
 
     <div id="condition_3" class="d-flex mb-3">
-      <div id="item_3" class="col-2">
+      <div id="item_3" class="col-3">
         <p> Include Numbers </p>
       </div>
       <div id="switch_3" class="col-3 form-check form-switch">
@@ -47,7 +46,7 @@
     </div>
 
     <div id="condition_4" class="d-flex mb-3">
-      <div id="item_4" class="col-2">
+      <div id="item_4" class="col-3">
         <p> Include Symbols </p>
       </div>
       <div id="switch_4" class="col-3 form-check form-switch">
@@ -56,8 +55,8 @@
       </div>
     </div>
 
-      <div id="condition_5" class="d-flex mb-3">
-        <div id="item_5" class="col-2">
+      <div id="condition_5" class="d-flex mb-3 align-items-center">
+        <div id="item_5" class="col-3">
           <p> Exclude Characters </p>
         </div>
         <div>
@@ -65,9 +64,12 @@
           <p class="text-secondary"> These characters will not appear in the password </p>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary mb-3">Generate Password</button>
+
+      <button type="submit" class="btn btn-primary">Generate Password</button>
+
+      <hr />
       
-      <div id="results" class="d-flex mb-3">
+      <div id="results" class="d-flex mb-3 mt-3">
         <h5>Your password is : {{passwordResult}}</h5>
       </div>
   </form>
