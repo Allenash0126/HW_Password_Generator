@@ -4,6 +4,7 @@ const { engine } = require('express-handlebars');
 const copyPaste = require("copy-paste"); 
 const app = express();
 const port = 3000;
+const wasValidated = 'was-validated'
 
 app.engine('.hbs', engine({extname: '.hbs'}))
 app.set('view engine', '.hbs')
@@ -44,7 +45,7 @@ app.get('/',(req,res) => {
 app.post('/onClickCondition',(req,res) => {
   passwordLength = req.body.onClickPasswordLength;
   grExclude = req.body.onClickExclude;
-  
+
   let options = req.body
   if (options.onClickLowercase) {
     totalCharacter_Temp += grLowerCase
@@ -58,13 +59,21 @@ app.post('/onClickCondition',(req,res) => {
   if (options.onClickSymbols) {
     totalCharacter_Temp += grSymbol
   }
-  
-  passwordResult = passwordGenerator(passwordLength);
-  
+
+  // Debug: 針對 (1)沒有選擇任一密碼元素者、(2)選擇元素為數字 但排除元素為所有數字者
+  if (!totalCharacter_Temp) {
+    passwordResult = 'You must select at least one character set'
+  } else if (totalCharacter_Temp === grNumber) {
+    passwordResult = 'You can not select Include Numbers and input 0~9 in Exclude Character'
+  }
+  else {
+    passwordResult = passwordGenerator(passwordLength);
+  }
+
   // 清空（totalCharacter_Temp）暫存檔
   totalCharacter_Temp = ''
 
-  res.render('index',{passwordResult,passwordLength,grExclude,options})
+  res.render('index',{passwordResult,passwordLength,grExclude,options,wasValidated})
 })
 
 app.get('/copyButton',(req,res) => {

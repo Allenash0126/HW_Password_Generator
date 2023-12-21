@@ -1,17 +1,22 @@
-<div id="condition">
+<div id="container">
 
-  <form action="/onClickCondition" method="post">
-    <div id="condition_0" class="d-flex">
+  <h5 class="mb-3">Random Passwords Generator</h5>
+  <hr/>
+
+  <form action="/onClickCondition" method="post" class=" {{wasValidated}} " novalidate>
+    <div id="condition_0" class="d-flex mb-3">
       <div id="item_0" class="col-2">
         <p> Password Length </p>
       </div>
       <div>
-        <input type="text" name="onClickPasswordLength" class="form-control" id="password-length" placeholder="input here" value="{{passwordLength}}">
+        <input type="text" name="onClickPasswordLength" class="form-control" id="password-length" placeholder="input here" value="{{passwordLength}}" required>
+        <div class="invalid-feedback">This field is required.</div>
+        <div class="valid-feedback">Good!</div>
         <p class="text-secondary"> Length is available between 4~15 </p>
       </div>
     </div>
 
-  <div id="condition_1" class="d-flex">
+  <div id="condition_1" class="d-flex mb-3">
     <div id="item_1" class="col-2">
       <p> Include Lowercase Characters </p>
     </div>
@@ -21,7 +26,7 @@
     </div>
   </div>
 
-  <div id="condition_2" class="d-flex">
+  <div id="condition_2" class="d-flex mb-3">
       <div id="item_2" class="col-2">
         <p> Include Uppercase Characters </p>
       </div>
@@ -31,7 +36,7 @@
       </div>
   </div>
 
-    <div id="condition_3" class="d-flex">
+    <div id="condition_3" class="d-flex mb-3">
       <div id="item_3" class="col-2">
         <p> Include Numbers </p>
       </div>
@@ -41,7 +46,7 @@
       </div>
     </div>
 
-    <div id="condition_4" class="d-flex">
+    <div id="condition_4" class="d-flex mb-3">
       <div id="item_4" class="col-2">
         <p> Include Symbols </p>
       </div>
@@ -51,7 +56,7 @@
       </div>
     </div>
 
-      <div id="condition_5" class="d-flex">
+      <div id="condition_5" class="d-flex mb-3">
         <div id="item_5" class="col-2">
           <p> Exclude Characters </p>
         </div>
@@ -60,14 +65,14 @@
           <p class="text-secondary"> These characters will not appear in the password </p>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary">Generate Password</button>
+      <button type="submit" class="btn btn-primary mb-3">Generate Password</button>
       
-      <div id="results">
-        <h3>Your password is : {{passwordResult}}</h3>
+      <div id="results" class="d-flex mb-3">
+        <h5>Your password is : {{passwordResult}}</h5>
       </div>
   </form>
 
   <form action="/copyButton" method="get"> 
-    <button type="submit" class="btn btn-primary">Copy</button>
+    <button type="submit" class="btn btn-primary mb-3">Copy</button>
   </form>
 </div>
